@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Cosmic Observatory - Explore the wonders of space with interactive facts, animations, and astrophysics simulations">
+    <title>🌌 Cosmic Observatory | Advanced Space Exploration</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Particle Animation Canvas -->
+    <canvas id="starCanvas"></canvas>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader">
+            <div class="orbit"></div>
+            <div class="orbit"></div>
+            <div class="orbit"></div>
+            <p>Launching Cosmic Experience...</p>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-wrapper">
+        <!-- Navigation Bar -->
+        <nav class="glass-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-icon">🌌</div>
+                    <span class="logo-text">Cosmic Observatory</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#facts" class="nav-link">Discoveries</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#stats" class="nav-link">Statistics</a>
+                </div>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <div class="floating-stars">
+                    <div class="star star1">⭐</div>
+                    <div class="star star2">🌟</div>
+                    <div class="star star3">✨</div>
+                </div>
+                <h1 class="glitch-text" data-text="Cosmic Observatory">Cosmic Observatory</h1>
+                <p class="hero-subtitle">Exploring the universe's greatest mysteries through interactive science</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" id="exploreBtn">Explore Universe</button>
+                    <button class="btn-secondary" id="factBtn">Random Discovery</button>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="mouse"></div>
+                    <p>Scroll to Explore</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Counter Section -->
+        <section id="stats" class="stats-section">
+            <div class="container">
+                <h2 class="section-title cosmic-title">📊 Cosmic Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card" data-count="100">
+                        <div class="stat-number" id="starsCount">0</div>
+                        <div class="stat-label">Billion Stars</div>
+                        <div class="stat-icon">⭐</div>
+                    </div>
+                    <div class="stat-card" data-count="1000">
+                        <div class="stat-number" id="planetsCount">0</div>
+                        <div class="stat-label">Exoplanets Found</div>
+                        <div class="stat-icon">🪐</div>
+                    </div>
+                    <div class="stat-card" data-count="150">
+                        <div class="stat-number" id="galaxiesCount">0</div>
+                        <div class="stat-label">Billion Galaxies</div>
+                        <div class="stat-icon">🌌</div>
+                    </div>
+                    <div class="stat-card" data-count="4500">
+                        <div class="stat-number" id="missionsCount">0</div>
+                        <div class="stat-label">Space Missions</div>
+                        <div class="stat-icon">🚀</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Facts Section with Filter -->
+        <section id="facts" class="facts-section">
+            <div class="container">
+                <h2 class="section-title reveal">✨ Cosmic Discoveries</h2>
+                <div class="fact-filters">
+                    <button class="filter-btn active" data-filter="all">All Facts</button>
+                    <button class="filter-btn" data-filter="planets">Planets</button>
+                    <button class="filter-btn" data-filter="stars">Stars</button>
+                    <button class="filter-btn" data-filter="physics">Physics</button>
+                    <button class="filter-btn" data-filter="missions">Missions</button>
+                </div>
+                <div class="facts-grid" id="factsGrid">
+                    <!-- Facts will be dynamically loaded here -->
+                </div>
+                <div class="fact-controls">
+                    <button id="loadMoreBtn" class="btn-outline">Load More Discoveries</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive 3D Card Section -->
+        <section class="interactive-section">
+            <div class="container">
+                <h2 class="section-title reveal">🔭 Interactive Universe</h2>
+                <div class="card-3d-container">
+                    <div class="card-3d">
+                        <div class="card-front">
+                            <div class="planet-icon">🌍</div>
+                            <h3>Earth's Twin?</h3>
+                            <p>Click to explore</p>
+                        </div>
+                        <div class="card-back">
+                            <p>Kepler-452b is Earth's cousin, orbiting in habitable zone 1,400 light-years away!</p>
+                        </div>
+                    </div>
+                    <div class="card-3d">
+                        <div class="card-front">
+                            <div class="planet-icon">🪐</div>
+                            <h3>Saturn's Secret</h3>
+                            <p>Click to explore</p>
+                        </div>
+                        <div class="card-back">
+                            <p>Saturn has 82 moons - more than any other planet in our solar system!</p>
+                        </div>
+                    </div>
+                    <div class="card-3d">
+                        <div class="card-front">
+                            <div class="planet-icon">⚡</div>
+                            <h3>Speed of Light</h3>
+                            <p>Click to explore</p>
+                        </div>
+                        <div class="card-back">
+                            <p>Light travels 299,792 km/s - you could circle Earth 7.5 times in one second!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form with Animation -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info reveal">
+                        <h2 class="section-title">📡 Mission Control</h2>
+                        <div class="info-cards">
+                            <div class="info-item">
+                                <div class="info-icon">📧</div>
+                                <div>contact@cosmicobservatory.com</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">📱</div>
+                                <div>+1 (555) 123-4567</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">📍</div>
+                                <div>Space Science Institute, CA</div>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-link">🌐</a>
+                            <a href="#" class="social-link">🐦</a>
+                            <a href="#" class="social-link">📷</a>
+                            <a href="#" class="social-link">💬</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container reveal">
+                        <form id="advancedContactForm" action="contact.php" method="POST" class="floating-form">
+                            <div class="form-group animated-group">
+                                <input type="text" id="name" name="name" required>
+                                <label for="name">Full Name *</label>
+                                <div class="focus-border"></div>
+                            </div>
+                            <div class="form-group animated-group">
+                                <input type="email" id="email" name="email" required>
+                                <label for="email">Email Address *</label>
+                                <div class="focus-border"></div>
+                            </div>
+                            <div class="form-group animated-group">
+                                <select id="subject" name="subject">
+                                    <option value="general">General Inquiry</option>
+                                    <option value="fact">Share a Space Fact</option>
+                                    <option value="question">Astronomy Question</option>
+                                    <option value="collab">Collaboration</option>
+                                </select>
+                                <label for="subject">Subject</label>
+                                <div class="focus-border"></div>
+                            </div>
+                            <div class="form-group animated-group">
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <label for="message">Your Message *</label>
+                                <div class="focus-border"></div>
+                            </div>
+                            <div class="form-group captcha-group">
+                                <div class="captcha-container">
+                                    <span id="captchaQuestion">What is 5 + 3?</span>
+                                    <input type="text" id="captcha" name="captcha" required>
+                                </div>
+                            </div>
+                            <button type="submit" name="submit_contact" class="btn-submit">
+                                <span>Send to Mission Control</span>
+                                <div class="btn-sparkle">✨</div>
+                            </button>
+                            <div id="formFeedback" class="form-feedback"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="cosmic-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>🌌 Cosmic Observatory</h4>
+                    <p>Inspiring curiosity about our universe through interactive science education.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#facts">Discoveries</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Course Project</h4>
+                    <p>Advanced Web Development<br>University Project 2025</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cosmic Observatory | Educational Project Using HTML, CSS, JS, PHP</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
